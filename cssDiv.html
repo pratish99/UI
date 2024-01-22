@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 100px;
+            width: 200px;
+            border: 2px solid black;
+            position: relative;
+            text-align: right;
+        }
+        #div1{
+            background-color: red;
+            z-index: 1;
+        }
+        #div2{
+            background-color: yellow;
+            top: -20px;
+            left: 70px;
+            z-index: 0;
+        }
+        #div3{
+            background-color: green;
+            top: -40px;
+            left: 140px;
+            z-index: 1;
+        }
+
+    </style>
+    <script>
+        function bringFront(id){
+            var allDivs = document.querySelectorAll(".all");
+            allDivs.forEach(div => {
+                div.style.zIndex="0";   
+            });
+            document.getElementById(id).style.zIndex='1';
+        }
+    </script>
+    
+</head>
+<body>
+    <div class="all" id="div1" onclick="bringFront('div1')">Div 1</div>
+    <div class="all" id="div2" onclick="bringFront('div2')">Div 2</div>
+    <div class="all" id="div3" onclick="bringFront('div3')">Div 3</div>
+</body>
+</html>
